@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const CadastroLogin = () => {
   const [nome, setNome] = useState('');
@@ -23,8 +23,6 @@ const CadastroLogin = () => {
   return (
     <View style={styles.container}>
       {tela === 'login' ? (
-        // inserindo a View (linha 24) e logo abaixo inserindo o estilo do Login e Senha (29 à 43)
-        // Linha 44 à 47, botão de login + texto abaixo para ir à tela de cadastro.
         <>
           <Text style={styles.title}>Login</Text>
           <TextInput
@@ -41,7 +39,7 @@ const CadastroLogin = () => {
             value={senha}
             onChangeText={setSenha}
           />
-          <Button title="Entrar" onPress={handleLogin} />
+          <Button title="Entrar" onPress={handleLogin}/>
           <Text style={styles.textLink} onPress={() => setTela('cadastro')}>
             Ainda não tem uma conta? Cadastre-se aqui.
           </Text>
@@ -104,6 +102,18 @@ const styles = StyleSheet.create({
     color: 'blue',
     textDecorationLine: 'underline',
   },
+  button: {
+    backgroundColor: '#4287f5',
+    borderRadius: 5,
+    padding: 10,
+    margin: 10,
+  },
+  text: {
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
+
 
 export default CadastroLogin;
