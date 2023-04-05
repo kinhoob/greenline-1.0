@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  View,
+  TextInput,
+  Button,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 const CadastroLogin = () => {
   const [nome, setNome] = useState('');
@@ -39,10 +46,14 @@ const CadastroLogin = () => {
             value={senha}
             onChangeText={setSenha}
           />
-          <Button title="Entrar" onPress={handleLogin}/>
-          <Text style={styles.textLink} onPress={() => setTela('cadastro')}>
-            Ainda não tem uma conta? Cadastre-se aqui.
-          </Text>
+
+            <TouchableOpacity style={[styles.button, styles.greenButton]}>
+              <Text style={styles.buttonText}>Entrar</Text>
+            </TouchableOpacity>
+            <Text style={styles.textLink1} onPress={() => setTela('cadastro')}>
+              Ainda não tem uma conta? Cadastre-se aqui.
+            </Text>
+            
         </>
       ) : (
         <>
@@ -67,8 +78,10 @@ const CadastroLogin = () => {
             value={senha}
             onChangeText={setSenha}
           />
-          <Button title="Cadastrar" onPress={handleCadastro} />
-          <Text style={styles.textLink} onPress={() => setTela('login')}>
+          <TouchableOpacity style={[styles.button, styles.orangeButton]}>
+              <Text style={styles.buttonText}>Cadastrar</Text>
+            </TouchableOpacity>
+          <Text style={styles.textLink2} onPress={() => setTela('login')}>
             Já tem uma conta? Faça login aqui.
           </Text>
         </>
@@ -82,12 +95,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
   input: {
     width: '80%',
     height: 50,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#2e632f',
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 20,
@@ -97,23 +111,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  textLink: {
+  textLink1: {
     marginTop: 20,
-    color: 'blue',
+    color: '#ff6600',
+    textDecorationLine: 'underline',
+  },
+  textLink2: {
+    marginTop: 20,
+    color: '#00cc00',
     textDecorationLine: 'underline',
   },
   button: {
     backgroundColor: '#4287f5',
+    borderColor: '#2e632f',
     borderRadius: 5,
     padding: 10,
     margin: 10,
   },
-  text: {
-    color: '#fff',
-    fontWeight: 'bold',
-    textAlign: 'center',
+  greenButton: {
+    backgroundColor: '#00cc00',
+  },
+  orangeButton: {
+    backgroundColor: '#ff6600',
   },
 });
-
 
 export default CadastroLogin;
