@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  View, 
+import {  
   TextInput, 
   StyleSheet, 
   Text, 
@@ -21,13 +20,13 @@ export default function Cadastro() {
   const [senha, setSenha] = useState('');
   const [cpf, setCpf] = useState('');
 
-  const handleCadastro = () => {
+  //const handleCadastro = () => {
     // inserção de dados para fazer o cadastro de novo usuário.
-    console.log('Nome:', nome);
-    console.log('E-mail:', email);
-    console.log('Senha:', senha);
-    console.log('CPF/RG:', cpf);
-  };
+    //console.log('Nome:', nome);
+    //console.log('E-mail:', email);
+    //console.log('Senha:', senha);
+    //console.log('CPF/RG:', cpf);
+  //};
 
   return(
     <ScrollView style={styles.container}>
@@ -107,15 +106,18 @@ export default function Cadastro() {
         />
 
         <TouchableOpacity 
-          onPress={handleCadastro}
+          //onPress={handleCadastro}
           style={styles.button}
+          onPress={() => navigation.navigate('Login')}
         >
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
           style={styles.buttonRegister} 
-          onPress={() => navigation.navigate('Login')}
+          onPress={
+            () => navigation.navigate('Login')
+          }
         >
           <Text style={styles.link}>Já tem uma conta? Faça login aqui.</Text> 
         </TouchableOpacity>
@@ -154,9 +156,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
+    marginStart: '5%',
     marginTop: 58,
     marginBottom: 22,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   formTitle: {
     marginTop: 20,
