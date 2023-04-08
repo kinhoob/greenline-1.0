@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
   containerForm:{
     backgroundColor: '#fff',
     flex: 1,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     paddingStart: '10%',
     paddingEnd: '10%',
     marginStart: '5%',
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: '#4287f5',
+    backgroundColor: '#85c250',
     borderRadius: 4,
     paddingVertical: 8,
     marginTop: 14,
@@ -174,7 +174,8 @@ const styles = StyleSheet.create({
   },
   buttonRegister:{
     marginTop: 14,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    alignItems: 'center',
   },
   buttonText:{
     color: '#FFF',
@@ -184,5 +185,6 @@ const styles = StyleSheet.create({
   link: {
     textDecorationLine:'underline',
     color: 'blue',
+    marginTop: 20,
   }
 });

@@ -27,7 +27,7 @@ export default function Login() {
     // início de exibição da tela de login
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Faça seu Login</Text>
       </Animatable.View>
       
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -54,13 +54,17 @@ export default function Login() {
         <TouchableOpacity
           //onPress={handleLogin}
           style={styles.button}
-          onPress={() => navigation.navigate('Calendario')}
+          onPress={() => navigation.navigate('Home')}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate('Cadastro')}>
-          <Text style={styles.link}>Não possui conta? Cadastre-se aqui.</Text>
+          <Text style={styles.link}>Não possui conta? Cadastre-se aqui</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate('EsqueciSenha')}>
+          <Text style={styles.link}>Esqueci minha senha</Text>
         </TouchableOpacity>
       </Animatable.View>
       
@@ -77,8 +81,8 @@ const styles = StyleSheet.create({
   containerForm:{
     backgroundColor: '#fff',
     flex: 1,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     paddingStart: '10%',
     paddingEnd: '10%',
     marginStart: '5%',
@@ -106,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: '#4287f5',
+    backgroundColor: '#85c250',
     borderRadius: 4,
     paddingVertical: 8,
     marginTop: 14,
@@ -115,7 +119,8 @@ const styles = StyleSheet.create({
   },
   buttonRegister:{
     marginTop: 14,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    alignItems: 'center',
   },
   buttonText:{
     color: '#FFF',
@@ -125,5 +130,6 @@ const styles = StyleSheet.create({
   link: {
     textDecorationLine:'underline',
     color: 'blue',
+    marginTop: 20,
   }
 });
