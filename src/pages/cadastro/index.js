@@ -5,7 +5,7 @@ import {
   StyleSheet, 
   Text, 
   TouchableOpacity,
-  Image 
+  ScrollView 
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
@@ -19,16 +19,18 @@ export default function Cadastro() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [cpf, setCpf] = useState('');
 
   const handleCadastro = () => {
     // inserção de dados para fazer o cadastro de novo usuário.
     console.log('Nome:', nome);
     console.log('E-mail:', email);
     console.log('Senha:', senha);
+    console.log('CPF/RG:', cpf);
   };
 
   return(
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
 
       <Animatable.View animation="fadeInLeft" delay={500}>
        <Text style={styles.title}>Crie sua conta</Text>
@@ -36,49 +38,90 @@ export default function Cadastro() {
    
       {/* formulário */}
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        
-        {/* input de login */}
-      <TextInput
-        style={styles.input}
-        placeholder="Nome"
-        value={nome}
-        onChangeText={setNome}
-      />
 
-      {/* input de email */}
-      <TextInput
-        style={styles.input}
-        placeholder="E-mail"
-        keyboardType="email-address"
-        value={email}
-        onChangeText={setEmail}
-      />
+        <Text style={styles.formTitle}>Dados pessoais</Text>  
+        {/* input de nome */}
+        <TextInput
+          style={styles.input}
+          placeholder="Digite seu nome completo "
+          value={nome}
+          onChangeText={setNome}
+        />
 
-      {/* input de senha */}
-      <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        secureTextEntry={true}
-        value={senha}
-        onChangeText={setSenha}
-      />
+        {/* input de email */}
+        <TextInput
+          style={styles.input}
+          placeholder="E-mail"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
 
-      <TouchableOpacity 
-        onPress={handleCadastro}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
+        {/* input de CPF/RG */}
+        <TextInput
+          style={styles.input}
+          placeholder="CPF/RG (somente números)"
+          keyboardType="numeric"
+          value={cpf}
+          onChangeText={setCpf}
+        />
 
-      <TouchableOpacity 
-        style={styles.buttonRegister} 
-        onPress={() => navigation.navigate('Login')}
-      >
-        <Text>Já tem uma conta? Faça login aqui.</Text> 
-      </TouchableOpacity>
+        <Text style={styles.formTitle}>Endereço</Text>
+        {/* nome da rua */}
+        <TextInput
+          style={styles.input}
+          placeholder="nome da rua"
+        />
+
+        {/* número da rua */}
+        <TextInput
+          style={styles.input}
+          placeholder="Número"
+          keyboardType="numeric"
+        />
+
+        {/* cep */}
+        <TextInput
+          style={styles.input}
+          placeholder="CEP"
+          keyboardType="numeric"
+        />
+
+        <Text style={styles.formTitle}>Senha</Text>
+        {/* input de senha */}
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry={true}
+          value={senha}
+          onChangeText={setSenha}
+        />
+
+        {/* input de repitir senha */}
+        <TextInput
+          style={styles.input}
+          placeholder="Repita sua senha"
+          secureTextEntry={true}
+          value={senha}
+          onChangeText={setSenha}
+        />
+
+        <TouchableOpacity 
+          onPress={handleCadastro}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.buttonRegister} 
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.link}>Já tem uma conta? Faça login aqui.</Text> 
+        </TouchableOpacity>
       </Animatable.View>
       
-    </View>
+    </ScrollView>
       
   )
 };
@@ -86,8 +129,6 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#c9d467'
   },
   containerForm:{
@@ -96,7 +137,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     paddingStart: '10%',
-    paddingEnd: '10%'
+    paddingEnd: '10%',
+    marginStart: '5%',
+    marginEnd: '5%',
+    paddingBottom: '15%',
   },
   input: {
     height: 50,
@@ -112,6 +156,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 58,
     marginBottom: 22,
+    textAlign: 'center',
+  },
+  formTitle: {
+    marginTop: 20,
   },
   button: {
     backgroundColor: '#4287f5',
@@ -130,4 +178,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  link: {
+    textDecorationLine:'underline',
+    color: 'blue',
+  }
 });

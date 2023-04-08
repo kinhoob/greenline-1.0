@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 export default function Login() {
+  const navigation = useNavigation();
+
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -36,9 +40,9 @@ export default function Login() {
 
           <Button title="Entrar" onPress={handleLogin}/>
 
-          <Text style={styles.textLink} onPress={() => setTela('cadastro')}>
-            Ainda não tem uma conta? Cadastre-se aqui.
-          </Text>
+          <TouchableOpacity style={styles.textLink} onPress={() => navigation.navigate('Cadastro')}>
+            <Text>Ainda não tem uma conta? Cadastre-se aqui.</Text>
+          </TouchableOpacity>
     </View>
     // final de exibição da tela de login
   )
