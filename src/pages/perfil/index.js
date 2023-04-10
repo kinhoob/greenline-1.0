@@ -6,15 +6,22 @@ import {
   Text, 
   TouchableOpacity,
 } from 'react-native';
+import Menu from '../menu';
 
 export default function Perfil() {
   return(
-    <View>
-    <Text>Perfil</Text>
-  </View>
+    <View style={styles.container}>
+
+      <Menu />
+      <Text>Perfil</Text>
+      
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  
+  container: {
+    flex: 1,
+    backgroundColor: '#c9d467'
+  },
 })
