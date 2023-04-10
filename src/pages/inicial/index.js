@@ -27,7 +27,7 @@ export default function Inicial() {
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
 
         <Text style={styles.title}>
-          Tenha um controle maoir do seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
+          Tenha um controle maior do seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
         </Text>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
@@ -46,7 +46,7 @@ export default function Inicial() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c9d467'
+    backgroundColor: '#ebdec6'
   },
   logo:{
     width: 150,

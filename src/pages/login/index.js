@@ -76,7 +76,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c9d467'
+    backgroundColor: '#ebdec6'
   },
   containerForm:{
     backgroundColor: '#fff',

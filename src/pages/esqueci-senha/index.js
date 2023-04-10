@@ -51,7 +51,7 @@ export default function EsqueciSenha() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c9d467'
+    backgroundColor: '#ebdec6'
   },
   input: {
     height: 50,

@@ -131,7 +131,7 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c9d467'
+    backgroundColor: '#ebdec6'
   },
   containerForm:{
     backgroundColor: '#fff',
@@ -160,6 +160,9 @@ const styles = StyleSheet.create({
     marginTop: 58,
     marginBottom: 22,
     textAlign: 'left',
+    textShadowColor: 'orange',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   formTitle: {
     marginTop: 20,
