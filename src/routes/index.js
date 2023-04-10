@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Cadastro from '../pages/cadastro/index'
 import Login from '../pages/login/index'
 import EsqueciSenha from '../pages/esqueci-senha/index';
+import Inicial from '../pages/inicial/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +11,13 @@ export default function Routes(){
 
   return(
     <Stack.Navigator>
+
+      {/* renderização tela inicial */}
+      <Stack.Screen 
+        name='Inicial'
+        component={Inicial}
+        options={{ headerShown: false }}
+      />
 
       {/* renderização da página de login */}
       <Stack.Screen
@@ -22,6 +30,7 @@ export default function Routes(){
       <Stack.Screen 
         name='EsqueciSenha'
         component={EsqueciSenha}
+        options={{ headerShown: false }}
       />
 
       {/* renderização da página de cadastro */}
