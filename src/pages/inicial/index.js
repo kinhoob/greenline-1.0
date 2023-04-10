@@ -27,7 +27,7 @@ export default function Inicial() {
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
 
         <Text style={styles.title}>
-          Tenha um controle maoir de seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
+          Tenha um controle maoir do seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
         </Text>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>

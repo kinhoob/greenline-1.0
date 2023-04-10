@@ -1,9 +1,10 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Cadastro from '../pages/cadastro/index'
 import Login from '../pages/login/index'
 import EsqueciSenha from '../pages/esqueci-senha/index';
 import Inicial from '../pages/inicial/index';
+import Perfil from '../pages/perfil/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,13 @@ export default function Routes(){
       <Stack.Screen
         name='Cadastro'
         component={Cadastro}
+        options={{ headerShown: false }}
+      />
+
+      {/* renderização da página de perfil */}
+      <Stack.Screen
+        name='Perfil'
+        component={Perfil}
         options={{ headerShown: false }}
       />
       
