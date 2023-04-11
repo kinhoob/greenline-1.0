@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Greenline\\" : "src/"
+        }
+    },
+    
+    "require": {
+        "doctrine/orm": "*",
+        "symfony/cache": "*",
+        "doctrine/annotations": "^2.0"
+    }
+}
