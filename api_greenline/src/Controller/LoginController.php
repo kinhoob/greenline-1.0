@@ -17,8 +17,8 @@ class LoginController
         $senha = filter_input(INPUT_POST, "senha");
 
         $usuario = $this->uC->getRepositorio()->findBy(['email' => $email]);
-
-        if(!is_null($usuario) && password_verify($usuario->getSenha(), PASSWORD_BCRYPT))
+        
+        if(!is_null($usuario) && password_verify($senha, $usuario->getSenha()))
         {
             return [
                 'logado' => true,
@@ -29,5 +29,13 @@ class LoginController
                 'mensagem' => 'usuário ou senha incorretos'
             ];
         }
+    }
+
+    public function logout()
+    {
+        return [
+            'logado' => false,
+            'usuario' => null
+        ];
     }
 }

@@ -32,7 +32,7 @@ if(isset(explode("?", $metodo)[1])){
     $parametros = null;
 }
 
-return $obj->$metodoFormatado($parametros);
+echo json_encode($obj->$metodoFormatado($parametros));
 /*return match($metodoFormatado){
     'index' => $obj->index(),
     'create' => $obj->create(),

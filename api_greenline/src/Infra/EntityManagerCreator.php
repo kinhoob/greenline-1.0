@@ -15,12 +15,7 @@ class EntityManagerCreator
         $paths = [__DIR__ . '/../Model'];
         $isDevMode = false;
 
-        $sqlPlatform = new SqlitePlatform();
-        $options = [
-            'driver' => 'pdo_sqlite',
-            'path' => __DIR__.'/../../database/greenline.sqlite',
-            'platform' => $sqlPlatform,
-        ];
+        $options = require_once __DIR__."/../../config/database.php";
 
         $config = ORMSetup::createAnnotationMetadataConfiguration(
             $paths,
