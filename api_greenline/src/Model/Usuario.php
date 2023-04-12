@@ -1,49 +1,52 @@
 <?php 
-namespace Greeline\Model;
+namespace Greenline\Model;
+
+use Doctrine\ORM\Mapping\{Entity,
+     Table,
+     Id,
+     GeneratedValue,
+     Column};
 
 /**
  * @Entity
- * @Table(name="usuario")
+ * @Table(name="usuarios")
  */
-
 class Usuario{
     /**
+     * @Id
+     * @GeneratedValue
      * @Column(type="integer")
     */
     private $id;
 
     /**
-     * @Id
-     * @GeneratedValue
      * @Column(type="string")
      */
-    private $nome;
+    private string $nome;
 
     /**
-     * @Column(type="integer")
+     * @Column(type="string")
      */
-    private $cpf;
+    private string $cpf;
 
-     /**
-     * @Column(type="varchar")
+    /**
+      * @Column(type="string")
+      */
+    private string $email;
+
+    /**
+     * @Column(type="string")
      */
-    private $email;
+    private string $senha;
 
-     /**
-     * @Column(type="varchar")
-     */
-    private $senha;
-
-    public function __construct($id, $nome, $cpf, $email, $senha)
+    public function __construct(string $nome, string $cpf, string $email, string $senha, $id = null)
      {
-        $this->id=$id;
-        $this->nome=$nome;
-        $this->cpf=$cpf;
-        $this->email=$email;
-        $this->senha=$senha;
+        $this->id = $id;
+        $this->nome = $nome;
+        $this->cpf = $cpf;
+        $this->email = $email;
+        $this->senha = $senha;
      }
-
-     
 
     /**
      * Get the value of id
@@ -133,5 +136,16 @@ class Usuario{
           $this->senha = $senha;
 
           return $this;
+     }
+
+     public function __serialize(): array
+     {
+          return [
+               'id' => $this->getId(),
+               'nome' => $this->getNome(),
+               'cpf' => $this->getCpf(),
+               'email' => $this->getEmail(),
+               'senha' => $this->getSenha(),
+          ];
      }
 }

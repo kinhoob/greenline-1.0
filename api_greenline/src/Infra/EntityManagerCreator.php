@@ -1,31 +1,31 @@
 <?php
 
-namespace Greeline\Infra;
+namespace Greenline\Infra;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\ORMSetup;
 use Doctrine\ORM\Tools\Setup;
+use Doctrine\DBAL\Platforms\SqlitePlatform;
 
 class EntityManagerCreator
 {
     public function getEntityManager(): EntityManagerInterface
     {
-        $paths = [__DIR__ . '/../Entity'];
+        $paths = [__DIR__ . '/../Model'];
         $isDevMode = false;
 
-        $dbParams = array(
-            'dbname' => 'greenline',
-            'user' => 'root',
-            'password' => '',
-            'host' => 'localhost',
-            'driver' => 'pdo_mysql',
-        );
+        $sqlPlatform = new SqlitePlatform();
+        $options = [
+            'driver' => 'pdo_sqlite',
+            'path' => __DIR__.'/../../database/greenline.sqlite',
+            'platform' => $sqlPlatform,
+        ];
 
         $config = ORMSetup::createAnnotationMetadataConfiguration(
             $paths,
             $isDevMode
         );
-        return EntityManager::create($dbParams, $config);
+        return EntityManager::create($options, $config);
     }
 }
