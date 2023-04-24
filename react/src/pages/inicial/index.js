@@ -19,10 +19,16 @@ export default function Inicial() {
       redirect: 'follow'
     };
     
-    fetch("localhost:8080/usuario/find?id=1", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+    //Fetch está requisitando da API um usuário e consumindo esses dados.
+
+    //fetch("http://localhost:8080/usuario/find?id=1", requestOptions)
+      //.then(response => response.text())
+      //.then(result => {
+        //console.log(result)
+        //let resultado = JSON.parse(result)
+        //setUsuario(resultado);
+      //})
+     // .catch(error => console.log('error', error));
   }
   var [usuario, setUsuario] = useState({"nome": "", "endereço": "", "cidade": "", "cep": ""})
   const navigation = useNavigation();
@@ -41,10 +47,6 @@ export default function Inicial() {
         <Text style={styles.title}>
           Tenha um controle maior do seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
         </Text>
-        <TouchableOpacity style={styles.button} onPress={handleUsuario}>
-          <Text style={styles.buttonText}>KDSAJKLSLAJJLKDSA</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>Entre</Text>
         </TouchableOpacity>
