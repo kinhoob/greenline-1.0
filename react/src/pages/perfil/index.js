@@ -13,6 +13,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
 
 export default function Perfil() {
+function handlePerfil(){
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("localhost:8080/usuario/find?id=1", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
+var [usuario, setUsuario] = useState({"nome": "", "endereço": "", "cidade": "", "cep": ""})
   return(
     <ScrollView style={styles.container}>
 
@@ -20,6 +32,7 @@ export default function Perfil() {
       <View style={styles.user}>
         <Icon name='person' size={70} color={'#fff'}/>
       </View>
+
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
         <View>
