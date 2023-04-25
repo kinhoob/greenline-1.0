@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   TextInput,  
@@ -23,11 +23,26 @@ export default function Login() {
     //console.log('Senha:', senha);
   //};
 
+  const handleSubmit = () => {
+    fetch('http://localhost:8080/login/validate', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+  }
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: senha, cpf:cpf})
+    };
+    
+
+// array de depedência vazia significa que irá rodar o useEffect apenas uma vez.
+;
+
   return(
     // início de exibição da tela de login
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500}>
-        <Text style={styles.title}>Faça seu Login</Text>
+       <Text style={styles.title}>Faça seu login</Text>
       </Animatable.View>
       
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -54,7 +69,7 @@ export default function Login() {
         <TouchableOpacity
           //onPress={handleLogin}
           style={styles.button}
-          onPress={() => navigation.navigate('Perfil')}
+          onPress={handleSubmit}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>

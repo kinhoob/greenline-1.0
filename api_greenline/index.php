@@ -6,6 +6,7 @@ use Greenline\Controller\UsuarioController;
 
 header('Access-Control-Allow-Origin: *');
 
+
 $arrayCaminhos = explode("/", $_SERVER['REQUEST_URI']);
 $controller = $arrayCaminhos[(count($arrayCaminhos) - 2)];
 $metodo = $arrayCaminhos[(count($arrayCaminhos) - 1)];

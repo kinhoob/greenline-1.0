@@ -39,13 +39,31 @@ class Usuario{
      */
     private string $senha;
 
-    public function __construct(string $nome, string $cpf, string $email, string $senha, $id = null)
+    /**
+     * @Column(type="string")
+     */
+      private string $endereco;
+
+      /**
+     * @Column(type="string")
+     */
+    private string $cidade;
+
+    /**
+     * @Column(type="string")
+     */
+    private string $cep;
+
+    public function __construct(string $nome, string $cpf, string $email, string $senha, string $endereco, string $cidade, string $cep, $id = null)
      {
         $this->id = $id;
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->email = $email;
         $this->senha = $senha;
+        $this->endereco = $endereco;
+        $this->cidade = $cidade;
+        $this->cep = $cep;
      }
 
     /**
@@ -138,6 +156,63 @@ class Usuario{
           return $this;
      }
 
+     /**
+      * Get the value of Endereço
+      */
+      public function getEndereco()
+      {
+           return $this->endereco;
+      }
+ 
+      /**
+       * Set the value of Endereço
+       */
+      public function setEndereco($endereco): self
+      {
+           $this->endereco = $endereco;
+ 
+           return $this;
+      }
+
+
+      /**
+      * Get the value of Cidade
+      */
+     public function getCidade()
+     {
+          return $this->cidade;
+     }
+
+     /**
+      * Set the value of Cidade
+      */
+     public function setCidade($cidade): self
+     {
+          $this->cidade = $cidade;
+
+          return $this;
+
+     }
+
+     /**
+      * Get the value of CEP
+      */
+      public function getCep()
+      {
+           return $this->cep;
+      }
+ 
+      /**
+       * Set the value of CEP
+       */
+      public function setCep($cep): self
+      {
+           $this->cep = $cep;
+ 
+           return $this;
+
+      }
+
      public function __serialize(): array
      {
           return [
@@ -145,7 +220,9 @@ class Usuario{
                'nome' => $this->getNome(),
                'cpf' => $this->getCpf(),
                'email' => $this->getEmail(),
-               'senha' => $this->getSenha(),
+               'endereco' => $this->getEndereco(),
+               'cidade' => $this->getCidade(),
+               'cep' => $this->getCep()
           ];
      }
 }

@@ -12,11 +12,11 @@ class LoginController
     }
 
     public function validate()
-    {
-        $email = filter_input(INPUT_POST, "email");
+    {   echo json_encode($_POST);
+        $cpf = filter_input(INPUT_POST, "cpf");
         $senha = filter_input(INPUT_POST, "senha");
 
-        $usuario = $this->uC->getRepositorio()->findBy(['email' => $email]);
+        $usuario = $this->uC->getRepositorio()->findBy(['cpf' => $cpf])[0];
         
         if(!is_null($usuario) && password_verify($senha, $usuario->getSenha()))
         {
