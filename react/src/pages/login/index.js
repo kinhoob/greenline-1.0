@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  TextInput,  
-  StyleSheet, 
-  Text, 
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
   TouchableOpacity,
 } from 'react-native';
 
@@ -18,33 +18,39 @@ export default function Login() {
   const [senha, setSenha] = useState('');
 
   //const handleLogin = () => {
-    // inserção de dados para o login do usuário.
-    //console.log('E-mail:', email);
-    //console.log('Senha:', senha);
+  // inserção de dados para o login do usuário.
+  //console.log('E-mail:', email);
+  //console.log('Senha:', senha);
   //};
 
   const handleSubmit = () => {
-    fetch('http://localhost:8080/login/validate', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data));
+    fetch('http://localhost:8080/login/validate/', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data));
   }
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ senha: senha, cpf:cpf})
-    };
-    
+  const requestOptions = {
+    method: 'POST',
+    headers: { 
+      'Access-Control-Allow-Origin': 'http://localhost:8080',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
+      'Access-Control-Request-Method': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
+     },
+    body: JSON.stringify({ senha: senha, cpf: cpf })
+  };
 
-// array de depedência vazia significa que irá rodar o useEffect apenas uma vez.
-;
 
-  return(
+  // array de depedência vazia significa que irá rodar o useEffect apenas uma vez.
+
+  return (
     // início de exibição da tela de login
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500}>
-       <Text style={styles.title}>Faça seu login</Text>
+        <Text style={styles.title}>Faça seu login</Text>
       </Animatable.View>
-      
+
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
         {/* input de login */}
         <Text style={styles.formTitle}>CPF/RG</Text>
@@ -82,7 +88,7 @@ export default function Login() {
           <Text style={styles.link}>Esqueci minha senha</Text>
         </TouchableOpacity>
       </Animatable.View>
-      
+
     </View>
     // final de exibição da tela de login
   )
@@ -93,7 +99,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ebdec6'
   },
-  containerForm:{
+  containerForm: {
     backgroundColor: '#fff',
     flex: 1,
     borderTopLeftRadius: 5,
@@ -132,18 +138,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  buttonRegister:{
+  buttonRegister: {
     marginTop: 14,
     alignSelf: 'center',
     alignItems: 'center',
   },
-  buttonText:{
+  buttonText: {
     color: '#FFF',
     fontSize: 18,
     fontWeight: 'bold',
   },
   link: {
-    textDecorationLine:'underline',
+    textDecorationLine: 'underline',
     color: 'blue',
     marginTop: 20,
   }
