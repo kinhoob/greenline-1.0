@@ -69,7 +69,7 @@ export default function Cadastro() {
         {/* nome da rua */}
         <TextInput
           style={styles.input}
-          placeholder="nome da rua"
+          placeholder="Nome da rua"
         />
 
         {/* número da rua */}
@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
     marginTop: 58,
     marginBottom: 22,
     textAlign: 'left',
-    textShadowColor: 'orange',
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },

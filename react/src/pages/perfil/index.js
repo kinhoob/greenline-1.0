@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { 
-  View, 
-  TextInput,  
-  StyleSheet, 
-  Text, 
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
   TouchableOpacity,
   ScrollView
 } from 'react-native';
@@ -13,24 +13,31 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
 
 export default function Perfil() {
-function handlePerfil(){
   var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
-  
-  fetch("localhost:8080/usuario/find?id=1", requestOptions)
+
+  useEffect(() => {
+    fetch("http://localhost:8080/usuario/find?id=1", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result)
+      let resultado = JSON.parse(result)
+      setUsuario(resultado);
+    })
     .catch(error => console.log('error', error));
-}
-var [usuario, setUsuario] = useState({"nome": "", "endereço": "", "cidade": "", "cep": ""})
-  return(
+  },
+  []
+  );
+
+  var [usuario, setUsuario] = useState({ "nome": "", "endereço": "", "cidade": "", "cep": "" })
+  return (
     <ScrollView style={styles.container}>
 
       <Menu />
       <View style={styles.user}>
-        <Icon name='person' size={70} color={'#fff'}/>
+        <Icon name='person' size={70} color={'#fff'} />
       </View>
 
 
@@ -38,32 +45,32 @@ var [usuario, setUsuario] = useState({"nome": "", "endereço": "", "cidade": "",
         <View>
           <Text style={styles.title}>Nome</Text>
           <View style={styles.infos}>
-            <Text style={styles.infosText}>Fulano de tal</Text>
+            <Text style={styles.infosText}>{usuario.nome}</Text>
           </View>
 
           <Text style={styles.title}>Endereço</Text>
           <View style={styles.infos}>
-            <Text style={styles.infosText}>Rua Tal, 123</Text>
+            <Text style={styles.infosText}>{usuario.endereco}</Text>
           </View >
 
           <Text style={styles.title}>Cidade</Text>
           <View style={styles.infos}>
-            <Text style={styles.infosText}>Recife</Text>
+            <Text style={styles.infosText}>{usuario.cidade}</Text>
           </View>
 
           <Text style={styles.title}>CEP</Text>
           <View style={styles.infos}>
-            <Text style={styles.infosText}>12345678</Text>
+            <Text style={styles.infosText}>{usuario.cep}</Text>
           </View>
         </View>
-      </Animatable.View>  
+      </Animatable.View>
 
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  user:{
+  user: {
     alignItems: 'center',
     marginVertical: 15,
   },
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ebdec6'
   },
-  containerForm:{
+  containerForm: {
     backgroundColor: '#fff',
     flex: 1,
     borderTopLeftRadius: 5,
@@ -82,14 +89,14 @@ const styles = StyleSheet.create({
     marginEnd: '5%',
     paddingBottom: '15%',
   },
-  infos:{
+  infos: {
     borderWidth: 1,
     borderRadius: 15,
     padding: 5,
   },
-  infosText:{
+  infosText: {
     marginStart: '5%'
-  }, 
+  },
   title: {
     fontSize: 15,
     fontWeight: 'bold',

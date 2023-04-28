@@ -5,10 +5,14 @@ require __DIR__ . '/vendor/autoload.php';
 use Greenline\Controller\UsuarioController;
 
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, GET, OPTIONS');
+header('Access-Control-Request-Method : *');
+header('Access-Control-Allow-Headers: *');
 
 $arrayCaminhos = explode("/", $_SERVER['REQUEST_URI']);
-$controller = $arrayCaminhos[(count($arrayCaminhos) - 2)];
-$metodo = $arrayCaminhos[(count($arrayCaminhos) - 1)];
+$controller = $arrayCaminhos[1];
+$metodo = $arrayCaminhos[2];
 
 $rotas = require __DIR__ . '/config/routes.php';
 

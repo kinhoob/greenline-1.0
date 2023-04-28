@@ -13,18 +13,23 @@ class LoginController
 
     public function validate()
     {
-        $email = filter_input(INPUT_POST, "email");
+        echo "<pre>";
+        ob_start();
+        var_dump($_POST);
+        error_log(ob_get_clean(), 4);
+        echo "</pre>";
+        exit();
+        $cpf = filter_input(INPUT_POST, "cpf");
         $senha = filter_input(INPUT_POST, "senha");
 
-        $usuario = $this->uC->getRepositorio()->findBy(['email' => $email]);
-        
-        if(!is_null($usuario) && password_verify($senha, $usuario->getSenha()))
-        {
+        $usuario = $this->uC->getRepositorio()->findBy(['cpf' => $cpf])[0];
+
+        if (!is_null($usuario) && password_verify($senha, $usuario->getSenha())) {
             return [
                 'logado' => true,
                 'usuario' => $usuario->__serialize()
             ];
-        }else{
+        } else {
             return [
                 'mensagem' => 'usuário ou senha incorretos'
             ];
