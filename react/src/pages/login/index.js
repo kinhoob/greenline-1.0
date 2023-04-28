@@ -19,7 +19,7 @@ export default function Login() {
   const [senha, setSenha] = useState('');
   const [login, setLogin] = useState(null);
 
-  const handleLogin = () => {
+  
     /*axios.post('http://localhost:8080/login/validate/', {
       cpf: cpf,
       senha: senha
@@ -36,29 +36,32 @@ export default function Login() {
     })
     .catch(error => console.log('error', error));*/
 
-  //const handleLogin = () => {
-    // inserção de dados para o login do usuário.
-    //console.log('E-mail:', email);
-    //console.log('Senha:', senha);
-  //};
+    //const handleLogin = () => {
+      // inserção de dados para o login do usuário.
+      //console.log('E-mail:', email);
+      //console.log('Senha:', senha);
+    //};
 
-  const handleSubmit = () => {
-    fetch('http://localhost:8080/login/validate/', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-  const requestOptions = {
-    method: 'POST',
-    headers: { 
-      'Access-Control-Allow-Origin': 'http://localhost:8080',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
-      'Access-Control-Request-Method': '*',
-      'Access-Control-Allow-Credentials': 'true',
-      'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
-     },
-    body: JSON.stringify({ senha: senha, cpf: cpf })
-  };
+    const handleSubmit = () => {
+      fetch('http://localhost:8080/login/validate/', requestOptions)
+        .then(response => console.log(response.json()))
+        .then(data => console.log(data));
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Access-Control-Allow-Origin': 'http://localhost:8080',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
+        'Access-Control-Request-Method': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
+      },
+      mode: 'no-cors',
+      body: JSON.stringify({ senha: senha, cpf: cpf })
+    };
+  
 
 
   // array de depedência vazia significa que irá rodar o useEffect apenas uma vez.
@@ -92,9 +95,9 @@ export default function Login() {
         />
 
         <TouchableOpacity
-          onPress={handleLogin}
+          onPress={handleSubmit}
           style={styles.button}
-          onPress={() => navigation.navigate('Perfil')}
+          //onPress={() => navigation.navigate('Perfil')}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>

@@ -36,9 +36,7 @@ if(isset(explode("?", $metodo)[1])){
     $parametros = null;
 }
 
-ob_start();
-var_dump($_POST);
-error_log(ob_get_clean(), 4);
+echo json_encode("chegou!");
 exit();
 
 echo json_encode($obj->$metodoFormatado($parametros));
