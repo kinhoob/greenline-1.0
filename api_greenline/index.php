@@ -32,6 +32,11 @@ if(isset(explode("?", $metodo)[1])){
     $parametros = null;
 }
 
+ob_start();
+var_dump($_POST);
+error_log(ob_get_clean(), 4);
+exit();
+
 echo json_encode($obj->$metodoFormatado($parametros));
 /*return match($metodoFormatado){
     'index' => $obj->index(),

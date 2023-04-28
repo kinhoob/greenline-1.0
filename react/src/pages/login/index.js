@@ -10,18 +10,57 @@ import {
 import * as Animatable from 'react-native-animatable'
 
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function Login() {
   const navigation = useNavigation();
 
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
+  const [login, setLogin] = useState(null);
 
-  //const handleLogin = () => {
-    // inserção de dados para o login do usuário.
-    //console.log('E-mail:', email);
-    //console.log('Senha:', senha);
-  //};
+  const handleLogin = () => {
+    /*axios.post('http://localhost:8080/login/validate/', {
+      cpf: cpf,
+      senha: senha
+    },
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    .then(result => {
+      setLogin(result.data);
+      console.log(login);
+    })
+    .catch(error => console.log('error', error));*/
+
+    fetch('http://localhost:8080/login/validate/', { // URL
+        body: JSON.stringify({
+          cpf: cpf,
+          senha: senha
+        }), // data you send.
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        headers: {
+          'content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, cors, *same-origin
+        redirect: 'follow', // *manual, follow, error
+        referrer: 'no-referrer', // *client, no-referrer
+    })
+    .then(function(response) {
+        // manipulate response object
+        // check status @ response.status etc.
+        console.log(response); // parses json
+    })
+    .then(function(myJson) {
+        // use parseed result
+        console.log(myJson);
+    });
+  }
 
   return(
     // início de exibição da tela de login
@@ -52,9 +91,9 @@ export default function Login() {
         />
 
         <TouchableOpacity
-          //onPress={handleLogin}
+          onPress={handleLogin}
           style={styles.button}
-          onPress={() => navigation.navigate('Perfil')}
+          //onPress={() => navigation.navigate('Perfil')}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
