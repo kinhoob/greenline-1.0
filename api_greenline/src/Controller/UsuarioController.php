@@ -12,12 +12,15 @@ class UsuarioController extends Controller{
 
     public function store()
     {
-        $nome = filter_input(INPUT_POST, "nome");
-        $cpf = filter_input(INPUT_POST, "cpf");
-        $email = filter_input(INPUT_POST, "email");
-        $senha = filter_input(INPUT_POST, "senha");
+        $nome = filter_input(INPUT_POST, "nome", FILTER_DEFAULT);
+        $cpf = filter_input(INPUT_POST, "cpf", FILTER_VALIDATE_INT);
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+        $senha = filter_input(INPUT_POST, "senha", FILTER_DEFAULT);
+        $endereco = filter_input(INPUT_POST, "endereco", FILTER_DEFAULT);
+        $cidade = filter_input(INPUT_POST, "cidade", FILTER_DEFAULT);
+        $cep = filter_input(INPUT_POST, "cep", FILTER_DEFAULT);
 
-        $usuario = new Usuario($nome, $cpf, $email, password_hash($senha, PASSWORD_BCRYPT));
+        $usuario = new Usuario($nome, $cpf, $email, password_hash($senha, PASSWORD_BCRYPT), $endereco, $cidade, $cep);
 
         $this->em->persist($usuario);
         $this->em->flush();
