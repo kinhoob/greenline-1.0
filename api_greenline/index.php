@@ -36,9 +36,6 @@ if(isset(explode("?", $metodo)[1])){
     $parametros = null;
 }
 
-echo json_encode("chegou!");
-exit();
-
 echo json_encode($obj->$metodoFormatado($parametros));
 /*return match($metodoFormatado){
     'index' => $obj->index(),

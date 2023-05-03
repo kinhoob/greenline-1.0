@@ -19,23 +19,6 @@ export default function Login() {
   const [senha, setSenha] = useState('');
   const [login, setLogin] = useState(null);
 
-  
-    /*axios.post('http://localhost:8080/login/validate/', {
-      cpf: cpf,
-      senha: senha
-    },
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    .then(result => {
-      setLogin(result.data);
-      console.log(login);
-    })
-    .catch(error => console.log('error', error));*/
-
     //const handleLogin = () => {
       // inserção de dados para o login do usuário.
       //console.log('E-mail:', email);
@@ -43,9 +26,24 @@ export default function Login() {
     //};
 
     const handleSubmit = () => {
-      fetch('http://localhost:8080/login/validate/', requestOptions)
+      /*fetch('http://localhost:8080/login/validate/', requestOptions)
         .then(response => console.log(response.json()))
-        .then(data => console.log(data));
+        .then(data => console.log(data));*/
+
+        axios.post('http://localhost:8080/login/validate/', {
+          cpf: cpf,
+          senha: senha
+        },
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*'
+          }
+        })
+        .then(result => {
+          console.log(JSON.parse(result.request.response));
+        })
+        .catch(error => console.log('error', error));
     }
 
     const requestOptions = {

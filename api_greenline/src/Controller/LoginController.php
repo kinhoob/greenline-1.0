@@ -13,12 +13,6 @@ class LoginController
 
     public function validate()
     {
-        echo "<pre>";
-        ob_start();
-        var_dump($_POST);
-        error_log(ob_get_clean(), 4);
-        echo "</pre>";
-        exit();
         $cpf = filter_input(INPUT_POST, "cpf");
         $senha = filter_input(INPUT_POST, "senha");
 
