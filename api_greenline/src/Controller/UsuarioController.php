@@ -12,6 +12,7 @@ class UsuarioController extends Controller{
 
     public function store()
     {
+        echo json_encode($_POST);
         $nome = filter_input(INPUT_POST, "nome", FILTER_DEFAULT);
         $cpf = filter_input(INPUT_POST, "cpf", FILTER_VALIDATE_INT);
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
