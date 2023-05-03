@@ -9,9 +9,34 @@ import {
 
 import * as Animatable from 'react-native-animatable'
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function Cadastro() {
+
+  function handleCadastro(){
+    axios.post('http://localhost:8080/usuario/store/', {
+      nome: nome,
+      cpf: cpf,
+      email: email,
+      endereco: endereco,
+      numero: numero,
+      cidade: cidade,
+      cep: cep,
+      senha: senha
+    },
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      .then(result => {
+        let respostaFormatada = JSON.parse(result.request.response);
+        console.log(respostaFormatada);
+      })
+      .catch(error => console.log('error', JSON.parse(error)));
+  }
   
   const navigation = useNavigation();
 
@@ -19,6 +44,10 @@ export default function Cadastro() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [cpf, setCpf] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [numero, setNumero] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [cep, setCep] = useState('');
 
   //const handleCadastro = () => {
     // inserção de dados para fazer o cadastro de novo usuário.
@@ -70,6 +99,7 @@ export default function Cadastro() {
         <TextInput
           style={styles.input}
           placeholder="Nome da rua"
+          onChangeText={setEndereco}
         />
 
         {/* número da rua */}
@@ -77,6 +107,14 @@ export default function Cadastro() {
           style={styles.input}
           placeholder="Número"
           keyboardType="numeric"
+          onChangeText={setNumero}
+        />
+
+        {/* cidade */}
+        <TextInput
+          style={styles.input}
+          placeholder="Cidade"
+          onChangeText={setCidade}
         />
 
         {/* cep */}
@@ -84,6 +122,7 @@ export default function Cadastro() {
           style={styles.input}
           placeholder="CEP"
           keyboardType="numeric"
+          onChangeText={setCep}
         />
 
         <Text style={styles.formTitle}>Senha</Text>
@@ -108,7 +147,7 @@ export default function Cadastro() {
         <TouchableOpacity 
           //onPress={handleCadastro}
           style={styles.button}
-          onPress={() => navigation.navigate('Login')}
+          onPress={handleCadastro}
         >
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>

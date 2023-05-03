@@ -10,3 +10,5 @@ $pdo->exec(
 );
 
 var_dump("Tabela 'usuários' criada com sucesso!");
+
+//Criar tabela de usuários

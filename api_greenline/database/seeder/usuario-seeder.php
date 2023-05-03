@@ -18,3 +18,6 @@ $statement->bindValue(7, "5355334544");
 $statement->execute();
 
 var_dump("Tabela usuarios preenchida com sucesso!");
+
+
+// Popula a tabela no banco

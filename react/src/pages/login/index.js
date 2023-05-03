@@ -19,44 +19,44 @@ export default function Login() {
   const [senha, setSenha] = useState('');
   const [mensagem, setMensagem] = useState('');
 
-    const handleSubmit = () => {
+  const handleSubmit = () => {
 
-        axios.post('http://localhost:8080/login/validate/', {
-          cpf: cpf,
-          senha: senha
-        },
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*'
-          }
-        })
-        .then(result => {
-          let respostaFormatada = JSON.parse(result.request.response);
-          if(respostaFormatada.hasOwnProperty('logado')){ //se o login for válido
-            //redirecione para perfil
-            navigation.navigate('Perfil', {usuario: respostaFormatada.usuario})
-          }else{
-            //se não, mostre uma mensagem de erro
-            setMensagem(respostaFormatada.mensagem);
-          }
-        })
-        .catch(error => console.log('error', JSON.parse(error)));
-    }
+    axios.post('http://localhost:8080/login/validate/', {
+      cpf: cpf,
+      senha: senha
+    },
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      .then(result => {
+        let respostaFormatada = JSON.parse(result.request.response);
+        if (respostaFormatada.hasOwnProperty('logado')) { //se o login for válido
+          //redirecione para perfil
+          navigation.navigate('Perfil', { usuario: respostaFormatada.usuario })
+        } else {
+          //se não, mostre uma mensagem de erro
+          setMensagem(respostaFormatada.mensagem);
+        }
+      })
+      .catch(error => console.log('error', JSON.parse(error)));
+  }
 
-    const requestOptions = {
-      method: 'POST',
-      headers: { 
-        'Access-Control-Allow-Origin': 'http://localhost:8080',
-        'Access-Control-Allow-Headers': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
-        'Access-Control-Request-Method': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
-      },
-      mode: 'no-cors',
-      body: JSON.stringify({ senha: senha, cpf: cpf })
-    };
+  // const requestOptions = {
+  //   method: 'POST',
+  //  headers: { 
+  //    'Access-Control-Allow-Origin': 'http://localhost:8080',
+  //   'Access-Control-Allow-Headers': '*',
+  //   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
+  //    'Access-Control-Request-Method': '*',
+  //   'Access-Control-Allow-Credentials': 'true',
+  //    'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
+  //  },
+  // mode: 'no-cors',
+  // body: JSON.stringify({ senha: senha, cpf: cpf })
+  // };
 
   return (
     // início de exibição da tela de login
@@ -90,7 +90,7 @@ export default function Login() {
         <TouchableOpacity
           onPress={handleSubmit}
           style={styles.button}
-          //onPress={() => navigation.navigate('Perfil')}
+        //onPress={() => navigation.navigate('Perfil')}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
