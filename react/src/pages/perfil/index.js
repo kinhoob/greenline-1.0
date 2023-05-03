@@ -12,26 +12,13 @@ import Menu from '../menu';
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
 
-export default function Perfil() {
+export default function Perfil({route, navigation}) {
   var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
 
-  useEffect(() => {
-    fetch("http://localhost:8080/usuario/find?id=1", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-      console.log(result)
-      let resultado = JSON.parse(result)
-      setUsuario(resultado);
-    })
-    .catch(error => console.log('error', error));
-  },
-  []
-  );
-
-  var [usuario, setUsuario] = useState({ "nome": "", "endereço": "", "cidade": "", "cep": "" })
+  const {usuario} = route.params; //recebe os parâmetros vindos da rota login
   return (
     <ScrollView style={styles.container}>
 

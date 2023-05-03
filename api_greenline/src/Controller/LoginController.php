@@ -16,12 +16,12 @@ class LoginController
         $cpf = filter_input(INPUT_POST, "cpf");
         $senha = filter_input(INPUT_POST, "senha");
 
-        $usuario = $this->uC->getRepositorio()->findBy(['cpf' => $cpf])[0];
+        $usuarios = $this->uC->getRepositorio()->findBy(['cpf' => $cpf]);
 
-        if (!is_null($usuario) && password_verify($senha, $usuario->getSenha())) {
+        if (!is_null($usuarios) && count($usuarios) > 0 && password_verify($senha, $usuarios[0]->getSenha())) {
             return [
                 'logado' => true,
-                'usuario' => $usuario->__serialize()
+                'usuario' => $usuarios[0]->__serialize()
             ];
         } else {
             return [

@@ -17,18 +17,9 @@ export default function Login() {
 
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
-  const [login, setLogin] = useState(null);
-
-    //const handleLogin = () => {
-      // inserção de dados para o login do usuário.
-      //console.log('E-mail:', email);
-      //console.log('Senha:', senha);
-    //};
+  const [mensagem, setMensagem] = useState('');
 
     const handleSubmit = () => {
-      /*fetch('http://localhost:8080/login/validate/', requestOptions)
-        .then(response => console.log(response.json()))
-        .then(data => console.log(data));*/
 
         axios.post('http://localhost:8080/login/validate/', {
           cpf: cpf,
@@ -41,9 +32,16 @@ export default function Login() {
           }
         })
         .then(result => {
-          console.log(JSON.parse(result.request.response));
+          let respostaFormatada = JSON.parse(result.request.response);
+          if(respostaFormatada.hasOwnProperty('logado')){ //se o login for válido
+            //redirecione para perfil
+            navigation.navigate('Perfil', {usuario: respostaFormatada.usuario})
+          }else{
+            //se não, mostre uma mensagem de erro
+            setMensagem(respostaFormatada.mensagem);
+          }
         })
-        .catch(error => console.log('error', error));
+        .catch(error => console.log('error', JSON.parse(error)));
     }
 
     const requestOptions = {
@@ -59,10 +57,6 @@ export default function Login() {
       mode: 'no-cors',
       body: JSON.stringify({ senha: senha, cpf: cpf })
     };
-  
-
-
-  // array de depedência vazia significa que irá rodar o useEffect apenas uma vez.
 
   return (
     // início de exibição da tela de login
@@ -91,6 +85,7 @@ export default function Login() {
           value={senha}
           onChangeText={setSenha}
         />
+        <Text>{mensagem}</Text>
 
         <TouchableOpacity
           onPress={handleSubmit}
