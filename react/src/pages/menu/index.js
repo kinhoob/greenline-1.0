@@ -28,7 +28,7 @@ export default function Menu() {
         </View>
       </Modal>
 
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
+      <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.hamburguer}>
         <Icon name='menu' size={50} color='#000'/>
       </TouchableOpacity>
       
@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 2,
     elevation: 25,
+  },
+  hamburguer: {
+    width:'10%',
   },
   texto:{
     fontSize: 20,

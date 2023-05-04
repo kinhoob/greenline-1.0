@@ -5,6 +5,7 @@ import Login from '../pages/login/index'
 import EsqueciSenha from '../pages/esqueci-senha/index';
 import Inicial from '../pages/inicial/index';
 import Perfil from '../pages/perfil/index';
+import Calendario from '../pages/calendario/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,13 @@ export default function Routes(){
 
   return(
     <Stack.Navigator>
+
+      {/* renderização tela inicial */}
+      <Stack.Screen 
+        name='Calendario'
+        component={Calendario}
+        options={{ headerShown: false }}
+      />
 
       {/* renderização tela inicial */}
       <Stack.Screen 
