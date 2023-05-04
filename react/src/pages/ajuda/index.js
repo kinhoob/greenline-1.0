@@ -6,7 +6,7 @@ import * as Animatable from 'react-native-animatable';
 
 import { useNavigation } from '@react-navigation/native'
 
-export default function Ajuda() {
+export default function Menu() {
 
   const navigation = useNavigation();
 
@@ -17,19 +17,28 @@ export default function Ajuda() {
       {/* modal do menu hamburguer */}
       <Modal transparent visible={modalVisible}>
         <View style={styles.containerModal}>
-          <Animatable.View animation="fadeInLeft" style={styles.menu}>
+          <Animatable.View animation="fadeIn" delay={0} style={styles.menu}>
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Icon name='close' size={50} color='#000' style={styles.close}/>
+              <Text style={styles.texto}>
+                Nós trabalhamos com dias pre definidos para cada tipo de lixo.{'\n'}
+                Ao solicitar o dia de coleta, so será coletado o lixo do respectivo dia.{'\n'}
+                O tipo do lixo a ser coletado está indicado no calendario pela sua cor.{'\n'}
+              </Text>
+              <Text style={styles.texto}>
+                Azul - Papel{'\n'}
+                Vermelho - Plástico{'\n'}
+                Verde - Vidro{'\n'}
+                Amarelo - Metal{'\n'}
+                Marrom - Orgânico{'\n'}
+              </Text>
             </TouchableOpacity>
-            <Text style={styles.texto}> <Icon name='person' size={20}/> Perfil</Text>
-            <Text style={styles.texto}> <Icon name='calendar' size={20}/> Calendário</Text>
-            <Text style={styles.textoSair} onPress={() => navigation.navigate('Login')}> <Icon name='log-out' size={20}/> Sair</Text>
           </Animatable.View>          
         </View>
       </Modal>
 
-      <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.hamburguer}>
-        <Icon name='menu' size={50} color='#000'/>
+      <TouchableOpacity onPress={() => setModalVisible(true)} >
+        <Icon name='information-circle' size={50} color='#000' style={styles.hamburguer}/>
       </TouchableOpacity>
       
     </View>
@@ -39,14 +48,15 @@ export default function Ajuda() {
 const styles = StyleSheet.create({
   containerModal:{
     flex:1,
+    alignItems: "center",
+    marginTop: 70,
   },
   menu:{
-    width:'50%',
+    width:'90%',
     minHeight: '80%',
     maxHeight: '90%',
     backgroundColor: '#fff',
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 10,
     shadowColor: 'rgba(0,0,0,1)',
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 1,
@@ -54,11 +64,13 @@ const styles = StyleSheet.create({
     elevation: 25,
   },
   hamburguer: {
-    width:'10%',
+    textAlign: "right",
+    marginTop: -55,
   },
   texto:{
-    fontSize: 20,
+    fontSize: 16,
     marginTop: 25,
+    marginHorizontal: 25,
   },
   textoSair:{
     fontSize: 20,
@@ -67,6 +79,6 @@ const styles = StyleSheet.create({
     marginBottom: 35,
   },
   close:{
-    marginLeft: '70%',
+    marginLeft: '80%',
   }
 })
