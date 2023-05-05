@@ -38,6 +38,11 @@ export default function Cadastro() {
       .catch(error => console.log('error', JSON.parse(error)));
   }
   
+  function save() {
+    handleCadastro(),
+    navigation.navigate('Login')
+  }
+
   const navigation = useNavigation();
 
   const [nome, setNome] = useState('');
@@ -145,9 +150,11 @@ export default function Cadastro() {
         />
 
         <TouchableOpacity 
-          //onPress={handleCadastro}
           style={styles.button}
-          onPress={handleCadastro}
+          onPress={
+            // chamada da função save (linha 41)
+            save
+          }
         >
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>

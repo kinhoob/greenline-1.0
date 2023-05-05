@@ -44,6 +44,11 @@ export default function Login() {
       .catch(error => console.log('error', JSON.parse(error)));
   }
 
+  function save() {
+    handleSubmit(),
+    navigation.navigate('Perfil')
+  }
+
   // const requestOptions = {
   //   method: 'POST',
   //  headers: { 
@@ -88,9 +93,10 @@ export default function Login() {
         <Text>{mensagem}</Text>
 
         <TouchableOpacity
-          onPress={handleSubmit}
+          onPress={
+            save
+          }
           style={styles.button}
-        //onPress={() => navigation.navigate('Perfil')}
         >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
