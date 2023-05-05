@@ -16,13 +16,6 @@ export default function Routes(){
 
       {/* renderização tela inicial */}
       <Stack.Screen 
-        name='Calendario'
-        component={Calendario}
-        options={{ headerShown: false }}
-      />
-
-      {/* renderização tela inicial */}
-      <Stack.Screen 
         name='Inicial'
         component={Inicial}
         options={{ headerShown: false }}
@@ -53,6 +46,13 @@ export default function Routes(){
       <Stack.Screen
         name='Perfil'
         component={Perfil}
+        options={{ headerShown: false }}
+      />
+      
+      {/* renderização tela do calendário */}
+      <Stack.Screen 
+        name='Calendario'
+        component={Calendario}
         options={{ headerShown: false }}
       />
       
