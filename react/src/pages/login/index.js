@@ -20,28 +20,33 @@ export default function Login() {
   const [mensagem, setMensagem] = useState('');
 
   const handleSubmit = () => {
-
-    axios.post('http://localhost:8080/login/validate/', {
+    axios.post('http://localhost:8080/login/validate/', 
+    {
       cpf: cpf,
       senha: senha
     },
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      .then(result => {
-        let respostaFormatada = JSON.parse(result.request.response);
-        if (respostaFormatada.hasOwnProperty('logado')) { //se o login for válido
-          //redirecione para perfil
-          navigation.navigate('Perfil', { usuario: respostaFormatada.usuario })
-        } else {
-          //se não, mostre uma mensagem de erro
-          setMensagem(respostaFormatada.mensagem);
-        }
-      })
-      .catch(error => console.log('error', JSON.parse(error)));
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'authorization',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
+        'Access-Control-Request-Method': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
+      }
+    })
+    .then(result => {
+      let respostaFormatada = JSON.parse(result.request.response);
+      if (respostaFormatada.hasOwnProperty('logado')) { //se o login for válido
+        //redirecione para perfil
+        navigation.navigate('Perfil', { usuario: respostaFormatada.usuario })
+      } else {
+        //se não, mostre uma mensagem de erro
+        setMensagem(respostaFormatada.mensagem);
+      }
+    })
+    .catch(error => console.log('error', JSON.parse(error)));
   }
 
   // const requestOptions = {

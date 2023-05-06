@@ -15,7 +15,8 @@ import axios from 'axios';
 export default function Cadastro() {
 
   function handleCadastro(){
-    axios.post('http://localhost:8080/usuario/store/', {
+    axios.post('http://localhost:8080/usuario/store/', 
+    {
       nome: nome,
       cpf: cpf,
       email: email,
@@ -25,22 +26,27 @@ export default function Cadastro() {
       cep: cep,
       senha: senha
     },
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      .then(result => {
-        let respostaFormatada = JSON.parse(result.request.response);
-        console.log(respostaFormatada);
-      })
-      .catch(error => console.log('error', JSON.parse(error)));
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'authorization',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, GET, OPTIONS',
+        'Access-Control-Request-Method': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Content-Type': 'multipart/form-data; charset=utf-8; boundary=---------------------------974767299852498929531610575'
+      }
+    })
+    .then(result => {
+      let respostaFormatada = JSON.parse(result.request.response);
+      console.log(respostaFormatada);
+    })
+    .catch(error => console.log('error', JSON.parse(error)));
   }
   
   function save() {
-    handleCadastro(),
-    navigation.navigate('Login')
+    handleCadastro()//,
+    //navigation.navigate('Login')
   }
 
   const navigation = useNavigation();

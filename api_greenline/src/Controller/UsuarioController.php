@@ -10,17 +10,17 @@ class UsuarioController extends Controller{
         parent::__construct(Usuario::class);
     }
 
-    public function store()
+    public function store($parametros)
     {
-        echo json_encode($_POST);
-        $nome = filter_input(INPUT_POST, "nome", FILTER_DEFAULT);
-        $cpf = filter_input(INPUT_POST, "cpf", FILTER_VALIDATE_INT);
-        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-        $senha = filter_input(INPUT_POST, "senha", FILTER_DEFAULT);
-        $endereco = filter_input(INPUT_POST, "endereco", FILTER_DEFAULT);
-        $cidade = filter_input(INPUT_POST, "cidade", FILTER_DEFAULT);
-        $cep = filter_input(INPUT_POST, "cep", FILTER_DEFAULT);
-
+        $nome = $parametros['nome']; //filter_input(INPUT_POST, "nome", FILTER_DEFAULT);
+        $cpf = $parametros['cpf']; //filter_input(INPUT_POST, "cpf", FILTER_VALIDATE_INT);
+        $email = $parametros['email']; //filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+        $senha = $parametros['senha']; //filter_input(INPUT_POST, "senha", FILTER_DEFAULT);
+        $endereco = $parametros['endereco']; //filter_input(INPUT_POST, "endereco", FILTER_DEFAULT);
+        $cidade = $parametros['cidade']; //filter_input(INPUT_POST, "cidade", FILTER_DEFAULT);
+        $cep = $parametros['cep']; //filter_input(INPUT_POST, "cep", FILTER_DEFAULT);
+        
+        
         $usuario = new Usuario($nome, $cpf, $email, password_hash($senha, PASSWORD_BCRYPT), $endereco, $cidade, $cep);
 
         $this->em->persist($usuario);
