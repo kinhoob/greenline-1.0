@@ -18,6 +18,10 @@ export default function Perfil({route, navigation}) {
     redirect: 'follow'
   };
 
+  useEffect(() => {
+    console.log(route);
+  },[]);
+
   const {usuario} = route.params; //recebe os parâmetros vindos da rota login
   return (
     <ScrollView style={styles.container}>
