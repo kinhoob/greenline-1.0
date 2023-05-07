@@ -6,7 +6,7 @@ import EsqueciSenha from '../pages/esqueci-senha/index';
 import Inicial from '../pages/inicial/index';
 import Perfil from '../pages/perfil/index';
 import Calendario from '../pages/calendario/index';
-
+/*import Mapa from '../pages/mapa/index';*/
 const Stack = createNativeStackNavigator();
 
 export default function Routes(){
@@ -48,6 +48,12 @@ export default function Routes(){
         component={Perfil}
         options={{ headerShown: false }}
       />
+
+{/*<Stack.Screen
+        name='Mapa'
+        component={Mapa}
+        options={{ headerShown: false }}
+      />*/}
       
       {/* renderização tela do calendário */}
       <Stack.Screen 

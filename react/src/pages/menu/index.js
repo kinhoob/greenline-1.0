@@ -21,8 +21,9 @@ export default function Ajuda() {
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Icon name='close' size={50} color='#000' style={styles.close}/>
             </TouchableOpacity>
-            <Text style={styles.texto}> <Icon name='person' size={20}/> Perfil</Text>
-            <Text style={styles.texto}> <Icon name='calendar' size={20}/> Calendário</Text>
+            <Text style={styles.texto} onPress={() => navigation.navigate('Calendario')}> <Icon name='calendar' size={20}/> Calendário</Text>
+            <Text style={styles.texto} onPress={() => navigation.navigate('Mapa')}> <Icon name='map' size={20}/> Mapa</Text>
+            <Text style={styles.texto} onPress={() => navigation.navigate('Perfil')}> <Icon name='person' size={20}/> Perfil</Text>
             <Text style={styles.textoSair} onPress={() => navigation.navigate('Login')}> <Icon name='log-out' size={20}/> Sair</Text>
           </Animatable.View>          
         </View>
