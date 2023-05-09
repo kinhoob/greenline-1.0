@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-
+import { FontAwesome } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable'
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Inicial() {
@@ -47,12 +47,13 @@ export default function Inicial() {
         <Text style={styles.title}>
           Tenha um controle maior do seu lixo e ajude o meio ambiente. Crie sua conta para saber mais
         </Text>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.buttonText}>Entre</Text>
+        <TouchableOpacity style={styles.button}
+         onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText}>Entre  <Icon name='log-in' size={20}/></Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cadastro')}>
-          <Text style={styles.buttonText}>Cadastre-se</Text>
+          <Text style={styles.buttonText}>Cadastre-se  <Icon name='ios-person-add-sharp' size={20}/></Text>
         </TouchableOpacity>
 
       </Animatable.View>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
   },
   buttonText:{
     color: '#FFF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
   },
   title: {

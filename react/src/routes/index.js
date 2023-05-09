@@ -6,16 +6,18 @@ import EsqueciSenha from '../pages/esqueci-senha/index';
 import Inicial from '../pages/inicial/index';
 import Perfil from '../pages/perfil/index';
 import Calendario from '../pages/calendario/index';
+import Suporte from '../pages/suporte/index';
+import Ranqueamento from '../pages/ranqueamento';
 /*import Mapa from '../pages/mapa/index';*/
 const Stack = createNativeStackNavigator();
 
-export default function Routes(){
+export default function Routes() {
 
-  return(
+  return (
     <Stack.Navigator>
 
       {/* renderização tela inicial */}
-      <Stack.Screen 
+      <Stack.Screen
         name='Inicial'
         component={Inicial}
         options={{ headerShown: false }}
@@ -29,7 +31,7 @@ export default function Routes(){
       />
 
       {/* renderização da tela de esqueci a senha */}
-      <Stack.Screen 
+      <Stack.Screen
         name='EsqueciSenha'
         component={EsqueciSenha}
         options={{ headerShown: false }}
@@ -48,20 +50,32 @@ export default function Routes(){
         component={Perfil}
         options={{ headerShown: false }}
       />
-
-{/*<Stack.Screen
+      {/* renderização tela do calendário 
+      <Stack.Screen
         name='Mapa'
         component={Mapa}
         options={{ headerShown: false }}
       />*/}
-      
+
       {/* renderização tela do calendário */}
-      <Stack.Screen 
+      <Stack.Screen
         name='Calendario'
         component={Calendario}
         options={{ headerShown: false }}
       />
-      
+      {/* renderização tela de suporte */}
+      <Stack.Screen
+        name='Suporte'
+        component={Suporte}
+        options={{ headerShown: false }}
+      />
+
+       {/* renderização tela de suporte */}
+    <Stack.Screen
+    name='Ranqueamento'
+    component={Ranqueamento}
+    options={{ headerShown: false }}
+  />
     </Stack.Navigator>
   )
 }

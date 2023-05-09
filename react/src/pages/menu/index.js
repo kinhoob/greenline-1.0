@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Modal } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Modal, Entypo } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
-
 import { useNavigation } from '@react-navigation/native'
 
 export default function Ajuda() {
@@ -23,7 +22,9 @@ export default function Ajuda() {
             </TouchableOpacity>
             <Text style={styles.texto} onPress={() => navigation.navigate('Calendario')}> <Icon name='calendar' size={20}/> Calendário</Text>
             <Text style={styles.texto} onPress={() => navigation.navigate('Mapa')}> <Icon name='map' size={20}/> Mapa</Text>
+            <Text style={styles.texto} onPress={() => navigation.navigate('Ranqueamento')}> <Icon name='list' size={20}/> Ranqueamento</Text>
             <Text style={styles.texto} onPress={() => navigation.navigate('Perfil')}> <Icon name='person' size={20}/> Perfil</Text>
+            <Text style={styles.texto} onPress={() => navigation.navigate('Suporte')}> <Icon name='chatbubbles' size={20}/> Suporte</Text>
             <Text style={styles.textoSair} onPress={() => navigation.navigate('Login')}> <Icon name='log-out' size={20}/> Sair</Text>
           </Animatable.View>          
         </View>

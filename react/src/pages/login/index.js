@@ -6,9 +6,8 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-
 import * as Animatable from 'react-native-animatable'
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 
@@ -98,7 +97,7 @@ export default function Login() {
           }
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Entrar</Text>
+          <Text style={styles.buttonText}>Entrar  <Icon name='log-in' size={20}/></Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate('Cadastro')}>
