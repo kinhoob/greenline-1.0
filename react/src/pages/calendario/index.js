@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, TextInput, Modal, TouchableOpacity} from 'react-native';
+import {ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
 import Calendar from 'react-native-calendars/src/calendar'
 import Menu from '../menu';
 import Ajuda from '../ajuda';
@@ -15,8 +15,9 @@ export default function Calendario() {
 
   return(
     <ScrollView style={styles.container}>
-      <Menu />
-      <Ajuda />
+        <Menu />
+        <Ajuda />
+      
       <Calendar 
         style={styles.calendario}
         minDate="2023-05-01"
@@ -85,9 +86,6 @@ const styles = StyleSheet.create({
     shadowOpacity:  0.17,
     shadowRadius: 3.05,
     elevation: 4
-  },
-  modal: {
-    
   },
   title: {
     fontSize: 28,

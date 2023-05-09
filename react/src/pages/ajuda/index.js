@@ -14,7 +14,7 @@ export default function Menu() {
 
   return(
     <View>
-      {/* modal do menu hamburguer */}
+      {/* modal do menu ajuda */}
       <Modal transparent visible={modalVisible}>
         <View style={styles.containerModal}>
           <Animatable.View animation="fadeIn" delay={0} style={styles.menu}>
@@ -37,8 +37,8 @@ export default function Menu() {
         </View>
       </Modal>
 
-      <TouchableOpacity onPress={() => setModalVisible(true)} >
-        <Icon name='information-circle' size={50} color='#000' style={styles.hamburguer}/>
+      <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.hamburguer}>
+        <Icon name='information-circle' size={50} color='#000'/>
       </TouchableOpacity>
       
     </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginTop: 70,
   },
   menu:{
-    width:'90%',
+    width:'80%',
     minHeight: '80%',
     maxHeight: '90%',
     backgroundColor: '#fff',
@@ -64,8 +64,11 @@ const styles = StyleSheet.create({
     elevation: 25,
   },
   hamburguer: {
-    textAlign: "right",
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    width: '10%',
     marginTop: -55,
+    marginRight: "5%",
   },
   texto:{
     fontSize: 16,

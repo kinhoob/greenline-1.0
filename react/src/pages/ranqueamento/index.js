@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import { useNavigation } from '@react-navigation/native'
 import Menu from '../menu';
@@ -17,17 +17,51 @@ export default function Ranqueamento(){
 
   return (
     <View style={styles.container}>
-      <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-        <Row data={tableHead} style={styles.head} textStyle={styles.text} />
-        <Rows data={tableData} textStyle={styles.text} />
-      </Table>
+      <Menu />
+      <View>
+        <Text style={styles.title}>As informações da tabela são atualizadas a cada semana</Text>
+        <Table style={styles.table}>
+          <Row data={tableHead} style={styles.head} textStyle={styles.textHead} />
+          <Rows data={tableData} textStyle={styles.text} />
+        </Table>
+      </View>      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  head: { height: 40, backgroundColor: '#f1f8ff' },
-  text: { margin: 6 }
+  container: { 
+    flex: 1,
+    backgroundColor:"#ebdec6",
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    margin: 20 ,
+    textAlign: 'center',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  table: { 
+    margin: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  head: { 
+    height: 40, 
+    backgroundColor: '#85c250',
+  },
+  textHead: { 
+    margin: 6,
+    color: "#fff",
+    borderWidth: 1,
+    padding: 10,
+    margin: 0 
+  },
+  text: { 
+    margin: 6,
+    borderWidth: 1,
+    padding: 7,
+    margin: 0 
+  },
 });
 

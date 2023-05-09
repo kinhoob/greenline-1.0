@@ -16,6 +16,14 @@ export default function Routes() {
   return (
     <Stack.Navigator>
 
+      
+      {/* renderização tela de suporte */}
+      <Stack.Screen
+        name='Suporte'
+        component={Suporte}
+        options={{ headerShown: false }}
+      />
+
       {/* renderização tela inicial */}
       <Stack.Screen
         name='Inicial'
@@ -50,32 +58,34 @@ export default function Routes() {
         component={Perfil}
         options={{ headerShown: false }}
       />
-      {/* renderização tela do calendário 
+
+      {/* renderização tela do mapa
       <Stack.Screen
         name='Mapa'
         component={Mapa}
         options={{ headerShown: false }}
       />*/}
 
-      {/* renderização tela do calendário */}
+      {/* renderização tela do calendário*/}
       <Stack.Screen
         name='Calendario'
         component={Calendario}
         options={{ headerShown: false }}
-      />
-      {/* renderização tela de suporte */}
+      /> 
+
+      {/* renderização tela de suporte
       <Stack.Screen
         name='Suporte'
         component={Suporte}
         options={{ headerShown: false }}
-      />
+      /> */}
 
-       {/* renderização tela de suporte */}
-    <Stack.Screen
-    name='Ranqueamento'
-    component={Ranqueamento}
-    options={{ headerShown: false }}
-  />
+      {/* renderização tela de ranqueamento */}
+      <Stack.Screen
+        name='Ranqueamento'
+        component={Ranqueamento}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   )
 }
