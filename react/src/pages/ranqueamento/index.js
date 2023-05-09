@@ -7,13 +7,13 @@ import Menu from '../menu';
 export default function Ranqueamento(){
     const navigation = useNavigation();
 
-  const tableHead = ['Nome', 'Pontuação'];
-  const tableData = [
-    ['João', '100'],
-    ['Maria', '85'],
-    ['Pedro', '75'],
-    ['Lucas', '60'],
-  ];
+    const tableHead = ['Nome', 'Pontuação'];
+    const tableData = [
+      ['Pricylla Santos', '*'],
+      ['Ivson Estevão', '*'],
+      ['José William', '*'],
+      ['Ismael Rodrigues', '*'],
+    ];
 
   return (
     <View style={styles.container}>
