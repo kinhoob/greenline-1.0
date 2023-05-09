@@ -16,14 +16,6 @@ export default function Routes() {
   return (
     <Stack.Navigator>
 
-      
-      {/* renderização tela de suporte */}
-      <Stack.Screen
-        name='Suporte'
-        component={Suporte}
-        options={{ headerShown: false }}
-      />
-
       {/* renderização tela inicial */}
       <Stack.Screen
         name='Inicial'
@@ -73,12 +65,12 @@ export default function Routes() {
         options={{ headerShown: false }}
       /> 
 
-      {/* renderização tela de suporte
+      {/* renderização tela de suporte*/}
       <Stack.Screen
         name='Suporte'
         component={Suporte}
         options={{ headerShown: false }}
-      /> */}
+      /> 
 
       {/* renderização tela de ranqueamento */}
       <Stack.Screen
