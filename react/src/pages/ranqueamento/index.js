@@ -32,7 +32,7 @@ export default function Ranqueamento(){
 const styles = StyleSheet.create({
   container: { 
     flex: 1,
-    backgroundColor:"#ebdec6",
+    backgroundColor: "#85c250",
   },
   title: {
     fontSize: 28,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   head: { 
     height: 40, 
-    backgroundColor: '#85c250',
+    backgroundColor: '#548053',
   },
   textHead: { 
     margin: 6,

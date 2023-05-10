@@ -183,7 +183,7 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ebdec6'
+    backgroundColor: '#85c250'
   },
   containerForm:{
     backgroundColor: '#fff',

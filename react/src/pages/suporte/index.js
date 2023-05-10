@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Linking, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Button, Linking, ScrollView, Alert } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
 import Menu from '../menu';
@@ -7,6 +7,13 @@ import * as Animatable from 'react-native-animatable';
 
 export default function Suporte() {
     const navigation = useNavigation();
+
+    const handleAlert = () => {
+        Alert.alert("Duvida enviada", "Cheque seu e-mail para verificar nossa resposta", [
+            {text: "Entendi", onPress:() => console.log('alert fechado')}
+        ],{cancelable: true, onDismiss:()=>console.log("alert fechado")})
+    }
+
     return (
         <ScrollView style={styles.container}>
             <Menu />
@@ -14,7 +21,7 @@ export default function Suporte() {
             <Animatable.View animation="fadeInUp" style={styles.containerSup}>
                 <View style={styles.content}>
                     <TextInput style={styles.input} placeholder="Tire suas dúvidas aqui" />
-                    <TouchableOpacity style={styles.questionButton}>
+                    <TouchableOpacity style={styles.questionButton} onPress={() => handleAlert}>
                         <FontAwesome name="bullhorn" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
@@ -42,7 +49,7 @@ export default function Suporte() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ebdec6'
+        backgroundColor: '#85c250'
     },
     content: {
         flexDirection: 'row',
