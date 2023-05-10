@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import Cadastro from '../pages/cadastro/index'
 import Login from '../pages/login/index'
 import EsqueciSenha from '../pages/esqueci-senha/index';
@@ -8,15 +7,14 @@ import Perfil from '../pages/perfil/index';
 import Calendario from '../pages/calendario/index';
 import Suporte from '../pages/suporte/index';
 import Ranqueamento from '../pages/ranqueamento';
-/*import Mapa from '../pages/mapa/index';*/
+import Mapa from '../pages/mapa/index';
+import React from 'react';
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
-
   return (
     <Stack.Navigator>
-
-      {/* renderização tela inicial */}
+     {/* renderização tela inicial */}
       <Stack.Screen
         name='Inicial'
         component={Inicial}
@@ -51,12 +49,7 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
 
-      {/* renderização tela do mapa
-      <Stack.Screen
-        name='Mapa'
-        component={Mapa}
-        options={{ headerShown: false }}
-      />*/}
+      
 
       {/* renderização tela do calendário*/}
       <Stack.Screen
@@ -76,6 +69,13 @@ export default function Routes() {
       <Stack.Screen
         name='Ranqueamento'
         component={Ranqueamento}
+        options={{ headerShown: false }}
+      />
+
+      {/* renderização tela do mapa*/}
+      <Stack.Screen
+        name='Mapa'
+        component={Mapa}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

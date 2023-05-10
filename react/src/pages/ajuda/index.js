@@ -21,6 +21,7 @@ export default function Menu() {
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Icon name='close' size={50} color='#000' style={styles.close}/>
               <Text style={styles.texto}>
+                Ao clicar na data escolhida, a coleta será marcada para o dia selecionado.{'\n'}
                 Nós trabalhamos com dias pré definidos para cada tipo de lixo.{'\n'}
                 Ao solicitar o dia de coleta, só será coletado o lixo do respectivo dia.{'\n'}
                 O tipo do lixo a ser coletado está indicado no calendario pela sua cor.{'\n'}
