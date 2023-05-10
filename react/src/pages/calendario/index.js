@@ -71,7 +71,7 @@ export default function Calendario() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ebdec6'
+    backgroundColor: '#85c250'
   },
   calendario: {
     margin: 10,

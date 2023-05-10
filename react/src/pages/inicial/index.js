@@ -64,7 +64,7 @@ export default function Inicial() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ebdec6'
+    backgroundColor: '#85c250'
   },
   logo:{
     width: 150,
