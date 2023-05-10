@@ -10,7 +10,7 @@ export default function Calendario() {
   const [dayMarked, setDayMarked] = useState();
 
   function criarDias(day){
-    setDayMarked("coleta solicitada para o dia "+day.dateString)
+    setDayMarked("Coleta solicitada para o dia "+day.dateString)
   }
 
   return(
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   calendario: {
     margin: 10,
     borderRadius: 5,
-    backgroundColor: "#85c250",
+    backgroundColor: "#3b7339",
     padding: 10,
     shadowColor: "#000000",
     shadowOffset: {
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: '#d1d0cd',
     padding: 10,
     margin: 10,
     shadowColor: "#000000",
