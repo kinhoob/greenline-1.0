@@ -13,7 +13,16 @@ const Stack = createNativeStackNavigator();
 
 export default function Routes() {
   return (
+
     <Stack.Navigator>
+
+    {/* renderização da página de perfil */}
+      <Stack.Screen
+        name='Perfil'
+        component={Perfil}
+        options={{ headerShown: false }}
+      />
+
      {/* renderização tela inicial */}
       <Stack.Screen
         name='Inicial'
@@ -21,12 +30,7 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
 
-      {/* renderização da página de login */}
-      <Stack.Screen
-        name='Login'
-        component={Login}
-        options={{ headerShown: false }}
-      />
+
 
       {/* renderização da tela de esqueci a senha */}
       <Stack.Screen
@@ -42,14 +46,12 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
 
-      {/* renderização da página de perfil */}
+      {/* renderização da página de perfil 
       <Stack.Screen
         name='Perfil'
         component={Perfil}
         options={{ headerShown: false }}
-      />
-
-      
+      />*/}
 
       {/* renderização tela do calendário*/}
       <Stack.Screen

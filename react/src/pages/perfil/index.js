@@ -18,7 +18,12 @@ export default function Perfil({route, navigation}) {
     redirect: 'follow'
   };
 
-  const {usuario} = route.params; //recebe os parâmetros vindos da rota login
+  const usuario = {
+    nome: "Marco Davi",
+    endereco: "Rua Padre Inglês Nº 257",
+    cep: 5355334544,
+    cidade: "Olinda"
+  } //route.params; //recebe os parâmetros vindos da rota login
   return (
     <ScrollView style={styles.container}>
 

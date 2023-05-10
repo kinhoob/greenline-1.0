@@ -45,6 +45,7 @@ export default function Login() {
         setMensagem(respostaFormatada.mensagem);
       }
     })
+    
     .catch(error => console.log('error', JSON.parse(error)));
   }
 
