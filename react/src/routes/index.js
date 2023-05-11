@@ -16,14 +16,9 @@ export default function Routes() {
 
     <Stack.Navigator>
 
-            {/* renderização tela de suporte*/}
-            <Stack.Screen
-        name='Suporte'
-        component={Suporte}
-        options={{ headerShown: false }}
-      /> 
 
-     {/* renderização tela inicial */}
+
+      {/* renderização tela inicial */}
       <Stack.Screen
         name='Inicial'
         component={Inicial}
@@ -58,14 +53,19 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
 
-      
+      {/* renderização tela de suporte*/}
+      <Stack.Screen
+        name='Suporte'
+        component={Suporte}
+        options={{ headerShown: false }}
+      />
 
       {/* renderização tela do calendário*/}
       <Stack.Screen
         name='Calendario'
         component={Calendario}
         options={{ headerShown: false }}
-      /> 
+      />
 
 
 
